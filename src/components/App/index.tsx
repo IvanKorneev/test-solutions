@@ -1,13 +1,15 @@
 import './App.sass'
-import UserTable from "../UsersTable/user-table";
+import UsersTable from "../UsersTable/users-table";
 import UsersForm from "../UsersForm/users-form";
+import Header from "../Header/header";
 
 const App = () => {
 
 
     return (
         <div className='app'>
-          <UserTable/>
+            <Header/>
+          <UsersTable/>
             <UsersForm/>
         </div>
     )

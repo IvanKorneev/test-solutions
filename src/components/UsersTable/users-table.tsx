@@ -10,8 +10,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import './users-table.sass';
 
-const UserTable: React.FC = () => {
+const UsersTable: React.FC = () => {
     const {users, error, loading} = useTypedSelector(state => state.users);
     const {user} = useTypedSelector(state => state.user);
     const {getUsers} = useActions();
@@ -57,4 +58,4 @@ const UserTable: React.FC = () => {
         </TableContainer>
     )
 };
-export default UserTable;
+export default UsersTable;
