@@ -33,15 +33,16 @@ export const UserForm: React.FC<{}> = () => {
                 onSubmit={(values, actions) => {
                     console.log({values, actions});
                     actions.setSubmitting(false);
+                    actions.resetForm();
                 }}
             >
                 {({ errors, touched, isValidating }) => (
                 <Form>
-                    <label htmlFor="Name">Name</label>
+                    <label htmlFor="name">Name</label>
                     <Field
-                        id="Name"
-                        name="Name"
-                        placeholder="Name"
+                        id="name"
+                        name="name"
+                        placeholder="name"
                         validate={validateUserName}
                     />
                     {touched.name && errors.name && <div>{errors.name}</div>}
