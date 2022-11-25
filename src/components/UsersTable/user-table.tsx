@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
 import {useTypedSelector} from "../Hooks/useTypedSelector";
-import {fetchUsers} from "../../store/Users/action-creators";
 import Loader from "../Loader/loader";
 import {useActions} from "../Hooks/useActions";
 import Error from "../Error/error";
@@ -14,11 +13,13 @@ import Paper from '@mui/material/Paper';
 
 const UserTable: React.FC = () => {
     const {users, error, loading} = useTypedSelector(state => state.users);
-    const {fetchUsers} = useActions()
+    const {user} = useTypedSelector(state => state.user);
+    const {getUsers} = useActions();
 
     useEffect(() => {
-        fetchUsers()
-    }, []);
+        getUsers()
+    }, [user]);
+
     if (loading) {
         return <Loader/>
     }
@@ -28,7 +29,7 @@ const UserTable: React.FC = () => {
 
     return (
         <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <Table sx={{minWidth: 650}} aria-label="simple table">
                 <TableHead>
                     <TableRow>
                         <TableCell align="right">Name</TableCell>
@@ -42,12 +43,12 @@ const UserTable: React.FC = () => {
                     {users.map((user) => (
                         <TableRow
                             key={user.id}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            sx={{'&:last-child td, &:last-child th': {border: 0}}}
                         >
                             <TableCell align="right">{user.name}</TableCell>
                             <TableCell align="right">{user.email}</TableCell>
                             <TableCell align="right">{user.phone}</TableCell>
-                            <TableCell align="right">{user.company.name}</TableCell>
+                            <TableCell align="right">{user.company}</TableCell>
                             <TableCell align="right">{user.website}</TableCell>
                         </TableRow>
                     ))}
