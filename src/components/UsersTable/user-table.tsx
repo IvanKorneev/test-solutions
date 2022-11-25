@@ -1,9 +1,8 @@
 import React from "react";
-import {useSelector} from "react-redux";
+import {useTypedSelector} from "../Hooks/useTypedSelector";
 
 const UserTable: React.FC = () => {
-    const state = useSelector(state => state);
-    console.log(state)
+    const {users,error,loading} = useTypedSelector(state => state.users);
     return (
         <div>
 
