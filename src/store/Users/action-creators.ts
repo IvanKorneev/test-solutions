@@ -1,16 +1,17 @@
-import {UserAction, UserActionTypes} from "../../types/user";
 import {Dispatch} from "redux";
 import axios from "axios";
 import {BASE_URL} from "../../consts/base-url";
+import {GetUsersAction, GetUsersActionTypes} from "./types";
 
-export const fetchUsers = () => {
-    return async (dispatch: Dispatch<UserAction>) => {
+
+export const getUsers = () => {
+    return async (dispatch: Dispatch<GetUsersAction>) => {
         try {
-            dispatch({type: UserActionTypes.FETCH_USERS});
+            dispatch({type: GetUsersActionTypes.GET_USERS_REQUEST});
             const response = await axios.get(`${BASE_URL}/users`);
-            dispatch({type: UserActionTypes.FETCH_USERS_SUCCESS, payload: response.data})
+            dispatch({type: GetUsersActionTypes.GET_USERS_SUCCESS, payload: response.data})
         } catch (error) {
-            dispatch({type: UserActionTypes.FETCH_USERS_ERROR, payload: 'Error loading'});
+            dispatch({type: GetUsersActionTypes.GET_USERS_ERROR, payload: 'Error loading'});
         }
     }
 };
