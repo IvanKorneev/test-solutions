@@ -15,6 +15,7 @@ import Loader from "../Loader/loader";
 import Error from "../Error/error";
 import {useTypedSelector} from "../Hooks/useTypedSelector";
 import {useActions} from "../Hooks/useActions";
+import './users-form.sass'
 
 interface MyFormValues {
     name: string;
@@ -37,8 +38,8 @@ export const UserForm: React.FC<{}> = () => {
         return <Error/>
     }
     return (
-        <div>
-            <h1>My Example</h1>
+        <div className='form-container'>
+            <h1>Fill the form</h1>
             <Formik
                 initialValues={initialValues}
                 onSubmit={(values, actions) => {
@@ -57,47 +58,53 @@ export const UserForm: React.FC<{}> = () => {
             >
                 {({errors, touched, isValidating}) => (
                     <Form>
-                        <label htmlFor="name">Name</label>
-                        <Field
-                            id="name"
-                            name="name"
-                            placeholder="name"
-                            validate={validateUserName}
-                        />
-                        {touched.name && errors.name && <div>{errors.name}</div>}
-
-                        <label htmlFor="email">Email</label>
-                        <Field
-                            id="email"
-                            name="email"
-                            placeholder="email"
-                            validate={validateEmail}
-                        />
-                        {errors.email && touched.email && <div>{errors.email}</div>}
-
-                        <label htmlFor="phone">Phone</label>
-                        <Field id="phone"
-                               name="phone"
-                               placeholder="phone"
-                               validate={validateUserPhone}
-                        />
-                        {errors.phone && touched.phone && <div>{errors.phone}</div>}
-
-                        <label htmlFor="company">Company</label>
-                        <Field id="company"
-                               name="company"
-                               placeholder="company"
-                               validate={validateUserCompany}
-                        />
-                        {errors.company && touched.company && <div>{errors.company}</div>}
-
-                        <label htmlFor="website">Website</label>
-                        <Field id="website"
-                               name="website"
-                               placeholder="website"
-                               validate={validateUserWebsite}
-                        />
-                        {errors.website && touched.website && <div>{errors.website}</div>}
+                        <div className='input-container'>
+                            <label htmlFor="name">Name</label>
+                            <Field
+                                id="name"
+                                name="name"
+                                placeholder="name"
+                                validate={validateUserName}
+                            />
+                            {touched.name && errors.name && <div className='error-message'>{errors.name}</div>}
+                        </div>
+                        <div className='input-container'>
+                            <label htmlFor="email">Email</label>
+                            <Field
+                                id="email"
+                                name="email"
+                                placeholder="email"
+                                validate={validateEmail}
+                            />
+                            {errors.email && touched.email && <div className='error-message'>{errors.email}</div>}
+                        </div>
+                        <div className='input-container'>
+                            <label htmlFor="phone">Phone</label>
+                            <Field id="phone"
+                                   name="phone"
+                                   placeholder="phone"
+                                   validate={validateUserPhone}
+                            />
+                            {errors.phone && touched.phone && <div className='error-message'>{errors.phone}</div>}
+                        </div>
+                        <div className='input-container'>
+                            <label htmlFor="company">Company</label>
+                            <Field id="company"
+                                   name="company"
+                                   placeholder="company"
+                                   validate={validateUserCompany}
+                            />
+                            {errors.company && touched.company && <div className='error-message'>{errors.company}</div>}
+                        </div>
+                        <div className='input-container'>
+                            <label htmlFor="website">Website</label>
+                            <Field id="website"
+                                   name="website"
+                                   placeholder="website"
+                                   validate={validateUserWebsite}
+                            />
+                            {errors.website && touched.website && <div className='error-message'>{errors.website}</div>}
+                        </div>
                         <button type="submit">Submit</button>
                     </Form>
                 )}

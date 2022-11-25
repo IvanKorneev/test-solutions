@@ -1,0 +1,49 @@
+@keyframes PopupOpenAnimation
+  0%
+    //left: -100%
+    right: 100%
+
+  100%
+    //left: 0
+    right: 0
+
+
+.form-container
+  background: #FFFFFF
+  border-radius: 16px
+  border: 1px solid #C5C5C5
+  box-shadow: 0 8px 24px -4px #0000001F, 0px 6px 12px -6px #00000014
+  display: block
+  height: 768px
+  padding: 0 40px
+  position: fixed
+  top: 20px
+  width: 404px
+  z-index: 1
+  right: 0
+  overflow-y: auto
+  animation: PopupOpenAnimation 1s
+
+  .input-container
+    margin-top: 16px
+
+  input
+    background: #FFFFFF
+    border-radius: 6px
+    border: 1px solid #C5C5C5
+    font-size: 14px
+    font-style: normal
+    font-weight: 400
+    line-height: 16px
+    padding: 10px 16px
+    width: 100%
+    &:focus
+      border-color: #0073FF
+
+    ::placeholder
+      color: #878787
+      opacity: 1
+
+  .error-message
+    margin: 5px
+    color: #DC3545
