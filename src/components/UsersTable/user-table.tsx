@@ -31,7 +31,7 @@ const UserTable: React.FC = () => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell align="right">User Name</TableCell>
+                        <TableCell align="right">Name</TableCell>
                         <TableCell align="right">Email</TableCell>
                         <TableCell align="right">Phone</TableCell>
                         <TableCell align="right">Company</TableCell>
@@ -44,7 +44,7 @@ const UserTable: React.FC = () => {
                             key={user.id}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                            <TableCell align="right">{user.username}</TableCell>
+                            <TableCell align="right">{user.name}</TableCell>
                             <TableCell align="right">{user.email}</TableCell>
                             <TableCell align="right">{user.phone}</TableCell>
                             <TableCell align="right">{user.company.name}</TableCell>
