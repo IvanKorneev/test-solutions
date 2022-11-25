@@ -3,6 +3,7 @@ import {useTypedSelector} from "../Hooks/useTypedSelector";
 import {fetchUsers} from "../../store/Users/action-creators";
 import Loader from "../Loader/loader";
 import {useActions} from "../Hooks/useActions";
+import Error from "../Error/error";
 
 const UserTable: React.FC = () => {
     const {users, error, loading} = useTypedSelector(state => state.users);
@@ -15,7 +16,7 @@ const UserTable: React.FC = () => {
         return <Loader/>
     }
     if (error) {
-        return <h1>{error}</h1>
+        return <Error/>
     }
 
     return (
