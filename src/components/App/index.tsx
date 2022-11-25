@@ -1,11 +1,12 @@
 import './App.sass'
+import UserTable from "../UsersTable/user-table";
 
 const App = () => {
 
 
     return (
         <div className='app'>
-            Hello
+          <UserTable/>
         </div>
     )
 }
