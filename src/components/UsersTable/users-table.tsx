@@ -33,11 +33,11 @@ const UsersTable: React.FC = () => {
             <Table sx={{minWidth: 650}} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell align="right">Name</TableCell>
-                        <TableCell align="right">Email</TableCell>
-                        <TableCell align="right">Phone</TableCell>
-                        <TableCell align="right">Company</TableCell>
-                        <TableCell align="right">Website</TableCell>
+                        <TableCell>Name</TableCell>
+                        <TableCell>Email</TableCell>
+                        <TableCell>Phone</TableCell>
+                        <TableCell>Company</TableCell>
+                        <TableCell>Website</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -46,11 +46,11 @@ const UsersTable: React.FC = () => {
                             key={user.id}
                             sx={{'&:last-child td, &:last-child th': {border: 0}}}
                         >
-                            <TableCell align="right">{user.name}</TableCell>
-                            <TableCell align="right">{user.email}</TableCell>
-                            <TableCell align="right">{user.phone}</TableCell>
-                            <TableCell align="right">{user.company}</TableCell>
-                            <TableCell align="right">{user.website}</TableCell>
+                            <TableCell>{user.name}</TableCell>
+                            <TableCell>{user.email}</TableCell>
+                            <TableCell>{user.phone}</TableCell>
+                            <TableCell>{user.company}</TableCell>
+                            <TableCell>{user.website}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
