@@ -23,16 +23,16 @@ export interface User {
 }
 
 
-
-
- export interface UserState {
-    users: any[];
+export interface UserState {
+    users: User[];
     loading: boolean;
     error: null | string;
 }
 
- export enum UserActionTypes {
-    FETCH_USERS = 'FETCH_USERS', FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS', FETCH_USERS_ERROR = 'FETCH_USERS_ERROR'
+export enum UserActionTypes {
+    FETCH_USERS = 'FETCH_USERS',
+    FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS',
+    FETCH_USERS_ERROR = 'FETCH_USERS_ERROR'
 }
 
 interface FetchUsersSuccessAction {
@@ -41,7 +41,7 @@ interface FetchUsersSuccessAction {
 
 interface FetchUsersAction {
     type: UserActionTypes.FETCH_USERS_SUCCESS;
-    payload: any[]
+    payload: User[]
 }
 
 interface FetchUsersErrorAction {
@@ -49,4 +49,4 @@ interface FetchUsersErrorAction {
     payload: string
 }
 
- export type UserAction = FetchUsersAction| FetchUsersSuccessAction|FetchUsersErrorAction;
+export type UserAction = FetchUsersAction | FetchUsersSuccessAction | FetchUsersErrorAction;
