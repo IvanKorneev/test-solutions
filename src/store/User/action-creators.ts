@@ -4,7 +4,7 @@ import {BASE_URL} from "../../consts/base-url";
 import {User} from "../../types/user";
 import {PostUserAction, PostUserActionTypes} from "./types";
 
-export const postTableRow = (user: User) => {
+export const postUser = (user: User) => {
     return async (dispatch: Dispatch<PostUserAction>) => {
         try {
             dispatch({type: PostUserActionTypes.POST_USER_REQUEST});
