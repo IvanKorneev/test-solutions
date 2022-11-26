@@ -4,6 +4,7 @@ import Stack from '@mui/material/Stack';
 import {useActions} from "../Hooks/useActions";
 import {ChangeEvent, useCallback} from "react";
 import {useTypedSelector} from "../Hooks/useTypedSelector";
+import './table-pagination.sass'
 
 
 const TablePagination = () => {
@@ -15,9 +16,12 @@ const TablePagination = () => {
      }, [setCurrentPage]);
 
     return (
-        <Stack spacing={1}>
-            <Pagination count={5} shape="rounded" page={page} onChange={setCurrentPageCallback}/>
-        </Stack>
-    )
-}
+        <div className='pagination-container'>
+            <Stack spacing={1}>
+                <Pagination count={3} shape="rounded" page={page} onChange={setCurrentPageCallback} size='large'/>
+            </Stack>
+        </div>
+
+    );
+};
 export default TablePagination;
