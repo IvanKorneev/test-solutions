@@ -44,8 +44,8 @@ export const UserForm = ({onPopupOpen}:UserFormProps) => {
     return (
         <div className='form-container'>
             <div className='form-header'>
-                <h1>Fill the form</h1>
-ad                <CloseIcon className='close-button' onClick={onPopupOpen}/>
+                <h2>Fill the form</h2>
+                <CloseIcon className='close-button' onClick={onPopupOpen}/>
             </div>
 
             <Formik
