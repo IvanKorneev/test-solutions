@@ -1,11 +1,9 @@
 @keyframes PopupOpenAnimation
   0%
-    //left: -100%
-    right: 100%
+    top: 100%
 
   100%
-    //left: 0
-    right: 0
+    top: 0
 
 
 .form-container
@@ -43,6 +41,21 @@
     ::placeholder
       color: #878787
       opacity: 1
+
+  .submit-button
+      margin-top: 50px
+      display: inline-block
+      outline: none
+      cursor: pointer
+      font-size: 16px
+      line-height: 20px
+      font-weight: 600
+      border-radius: 8px
+      padding: 14px 24px
+      border: none
+      transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s
+      background: linear-gradient(to right, rgb(30, 57, 230) 0%, rgb(28, 45, 227) 50%, rgb(4, 15, 215) 100%)
+      color: #fff
 
   .error-message
     margin: 5px

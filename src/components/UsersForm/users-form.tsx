@@ -24,9 +24,12 @@ interface MyFormValues {
     company: string;
     website: string
 }
+interface UserFormProps {
+    onPopupOpen: () => void
+}
 
 
-export const UserForm: React.FC<{}> = () => {
+export const UserForm = ({onPopupOpen}:UserFormProps) => {
     const initialValues: MyFormValues = {name: '', email: '', phone: '', company: '', website: ''};
     const {error, loading} = useTypedSelector(state => state.user);
     const {postUser} = useActions();
@@ -54,6 +57,7 @@ export const UserForm: React.FC<{}> = () => {
                     });
                     actions.setSubmitting(false);
                     actions.resetForm();
+                    onPopupOpen();
                 }}
             >
                 {({errors, touched, isValidating}) => (
@@ -105,7 +109,7 @@ export const UserForm: React.FC<{}> = () => {
                             />
                             {errors.website && touched.website && <div className='error-message'>{errors.website}</div>}
                         </div>
-                        <button type="submit">Submit</button>
+                        <button type="submit" className='submit-button'>Submit</button>
                     </Form>
                 )}
             </Formik>

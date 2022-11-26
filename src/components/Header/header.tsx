@@ -6,7 +6,11 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 
-const Header = () => {
+interface HeaderProps {
+    onPopupOpen: () => void
+}
+
+const Header = ({onPopupOpen}:HeaderProps) => {
     return (
         <Box sx={{flexGrow: 1}}>
             <AppBar position="static">
@@ -22,7 +26,7 @@ const Header = () => {
                     <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
                         Users data base
                     </Typography>
-                    <Button color="inherit">Add user</Button>
+                    <Button color="inherit" onClick={onPopupOpen}>Add user</Button>
                 </Toolbar>
             </AppBar>
         </Box>
