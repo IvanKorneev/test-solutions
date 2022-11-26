@@ -15,6 +15,7 @@ import Loader from "../Loader/loader";
 import Error from "../Error/error";
 import {useTypedSelector} from "../Hooks/useTypedSelector";
 import {useActions} from "../Hooks/useActions";
+import CloseIcon from '@mui/icons-material/Close';
 import './users-form.sass'
 
 interface MyFormValues {
@@ -42,11 +43,14 @@ export const UserForm = ({onPopupOpen}:UserFormProps) => {
     }
     return (
         <div className='form-container'>
-            <h1>Fill the form</h1>
+            <div className='form-header'>
+                <h1>Fill the form</h1>
+                <CloseIcon/>
+            </div>
+
             <Formik
                 initialValues={initialValues}
                 onSubmit={(values, actions) => {
-                    console.log(values);
                     postUser({
                         'id': Date.now() + Math.random(),
                         'name': values.name,
