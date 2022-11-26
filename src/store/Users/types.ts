@@ -4,12 +4,15 @@ export interface UsersState {
     users: User[];
     loading: boolean;
     error: null | string;
+    page: number;
+    limit: number;
 }
 
 export enum GetUsersActionTypes {
     GET_USERS_REQUEST = 'GET_USERS_REQUEST',
     GET_USERS_SUCCESS = 'GET_USERS_SUCCESS',
-    GET_USERS_ERROR = 'GET_USERS_ERROR'
+    GET_USERS_ERROR = 'GET_USERS_ERROR',
+    SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 }
 
 interface GetUsersRequestAction {
@@ -26,4 +29,9 @@ interface GetUsersErrorAction {
     payload: string;
 }
 
-export type GetUsersAction = GetUsersRequestAction | GetUsersSuccessAction | GetUsersErrorAction;
+interface SetCurrentPage {
+    type: GetUsersActionTypes.SET_CURRENT_PAGE;
+    payload: number
+}
+
+export type GetUsersAction = GetUsersRequestAction | GetUsersSuccessAction | GetUsersErrorAction | SetCurrentPage;

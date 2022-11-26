@@ -3,17 +3,21 @@ import {GetUsersAction, GetUsersActionTypes, UsersState} from "./types";
 const initialState: UsersState = {
     users: [],
     loading: false,
-    error: null
+    error: null,
+    page: 1,
+    limit: 5
 };
 
 export const usersReducer = (state = initialState, action: GetUsersAction): UsersState => {
     switch (action.type) {
         case GetUsersActionTypes.GET_USERS_REQUEST:
-            return {loading: true, error: null, users: []}
+            return {...state, loading: true, error: null, users: []}
         case GetUsersActionTypes.GET_USERS_SUCCESS:
-            return {loading: false, error: null, users: action.payload}
+            return {...state, loading: false, error: null, users: action.payload}
         case GetUsersActionTypes.GET_USERS_ERROR:
-            return {loading: false, error: action.payload, users: []}
+            return {...state, loading: false, error: action.payload, users: []}
+        case GetUsersActionTypes.SET_CURRENT_PAGE:
+            return {...state, page: action.payload}
         default:
             return state
     }
